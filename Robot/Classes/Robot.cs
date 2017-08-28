@@ -73,5 +73,43 @@ namespace Program
             }
         }
 
+
+        public void ExecuteRobot(World world)
+        {
+
+
+            this.IsLost = false;
+
+            foreach (char command in this.Command)
+            {
+
+                if (!world.OutOfRange(this))
+                {
+                    // Previous
+                    this.PreviousX = this.X;
+                    this.PreviousY = this.Y;
+
+                    // Move or Rotate 
+                    if (command == 'F')
+                    {
+                        var current = new Location(this.X, this.Y, this.Orientation);
+                        if (!world.IsSpreayed(current))
+                        {
+                            this.Forward();
+                        }
+                    }
+                    else
+                    {
+                        this.Rotate(command);
+                    }
+                }
+                else
+                {
+                    world.Spray(new Location(this.PreviousX, this.PreviousY, this.Orientation));
+                    this.IsLost = true;
+                }
+            }
+        }
+
     }
 }

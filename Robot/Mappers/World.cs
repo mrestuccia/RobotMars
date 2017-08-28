@@ -19,13 +19,13 @@ namespace Program
                 width = Convert.ToInt16(line.Trim().Split(' ')[0]);
                 height = Convert.ToInt16(line.Trim().Split(' ')[1]);
             }catch{
-                throw new Exception("Issue mapping the planet dimensions."); 
+                throw new Exception("Issue mapping the planet dimensions"); 
             }
 
 
             // Check if positive
             if(width<=0 || height<=0){
-                throw new Exception("World need positive numbers greater than 0");
+                throw new Exception("World need numbers greater than 0");
             }
 
 			// Check if less than 50

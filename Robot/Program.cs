@@ -5,44 +5,6 @@ namespace Program
     class MainClass
     {
 
-        public static void ExecuteRobot(Robot robot, World world)
-        {
-
-
-            robot.IsLost = false;
-
-            foreach (char command in robot.Command)
-            {
-
-                if (!world.OutOfRange(robot))
-                {
-                    // Previous
-					robot.PreviousX = robot.X;
-					robot.PreviousY = robot.Y;
-
-                    // Move or Rotate 
-                    if (command == 'F')
-                    {
-                        var current = new Location(robot.X, robot.Y, robot.Orientation);
-                        if (!world.IsSpreayed(current))
-                        {
-                            robot.Forward();
-                        }
-                    }
-                    else
-                    {
-                        robot.Rotate(command);
-                    }
-                }
-                else
-                {
-                    world.Spray(new Location(robot.PreviousX, robot.PreviousY, robot.Orientation));
-                    robot.IsLost = true;
-                }
-            }
-        }
-
-
         public static void Main(string[] args)
         {
 
@@ -65,7 +27,7 @@ namespace Program
                 var MyRobot = MyRobots.Mapped.Dequeue();
 
                 // Run the robot
-                ExecuteRobot(MyRobot, MyWorld);
+                MyRobot.ExecuteRobot(MyWorld);
 
                 // Print the output
                 if (MyRobot.IsLost){
@@ -77,6 +39,8 @@ namespace Program
                
 
             }
+
+            Console.ReadKey();
         }
     }
 }
