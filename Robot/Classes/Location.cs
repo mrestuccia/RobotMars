@@ -19,13 +19,13 @@ namespace Program
 
 
         // Overwite for comparison of locations object
-		public override bool Equals(object obj)
-		{
-			if (obj is Location)
-			{
-				return (obj as Location).X == X && (obj as Location).Y == Y && (obj as Location).Orientation == Orientation;
-			}
-			return false;
-		}
+        public override bool Equals(object obj)
+        {
+            if (obj is Location)
+            {
+                return (obj as Location).X == X && (obj as Location).Y == Y && (obj as Location).Orientation == Orientation;
+            }
+            return false;
+        }
     }
 }
