@@ -26,3 +26,4 @@ The file program acts as main controller. Loading the instructions from the file
 - More Unit Testing.
 - The main example provided should be added as the main test case.
 - The queue scent is saving many instances of the same scent. It should be only one.
+- Move constants such as 'N', 'S' to enum classes.
