@@ -40,6 +40,14 @@ namespace Program
                         throw new Exception("Some robot command are not valid.");
                     }
 
+					// Check than less that 100 chars.
+					if (instructions.Length > 100)
+					{
+						throw new Exception("Instructions for the Robot are too long");
+					}
+
+
+                    // Create the robot and add it to a queue
 					Robot Robot = new Robot(x, y, orientation, instructions);
 					Result.Enqueue(Robot);
 
