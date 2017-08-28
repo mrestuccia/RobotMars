@@ -3,7 +3,7 @@ OOP coding exersice
 
 # List of Assumptions
 1. Robots can be on the same space of the matrix.
-2. Instructions are been read from a .txt file that should be called input.txt
+2. Instructions are been read from a .txt file that should be called input.txt and it's located in the input folder
 3. Output is been displayed in the console. 
 
 
